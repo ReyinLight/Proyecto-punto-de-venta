@@ -1,0 +1,19 @@
+.product-detail-image {
+    width: 100%;
+    height: auto; /* Ajusta la altura de la imagen según sea necesario */
+    object-fit: cover;
+  }
+  
+  .card {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
