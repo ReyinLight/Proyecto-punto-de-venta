@@ -1,6 +1,6 @@
 import connection from '../config/db.js';
 
-// Obtener todos los artículos
+
 export const getAllArticulos = async (req, res, next) => {
     try {
         const [rows] = await connection.execute('SELECT * FROM articulo');
@@ -17,7 +17,7 @@ export const getAllArticulos = async (req, res, next) => {
     }
 };
 
-// Obtener un artículo por ID
+
 export const getArticuloById = async (req, res, next) => {
     try {
         const [rows] = await connection.execute('SELECT * FROM articulo WHERE id = ?', [req.params.id]);
@@ -34,7 +34,7 @@ export const getArticuloById = async (req, res, next) => {
     }
 };
 
-// Crear un nuevo artículo
+/*
 export const createArticulo = async (req, res, next) => {
     try {
         const { nombre, descripcion, precio, existencia } = req.body;
@@ -52,7 +52,7 @@ export const createArticulo = async (req, res, next) => {
     }
 };
 
-// Actualizar un artículo
+
 export const updateArticulo = async (req, res, next) => {
     try {
         const { nombre, descripcion, precio, existencia } = req.body;
@@ -74,7 +74,7 @@ export const updateArticulo = async (req, res, next) => {
     }
 };
 
-// Eliminar un artículo
+
 export const deleteArticulo = async (req, res, next) => {
     try {
         const [result] = await connection.execute('DELETE FROM articulos WHERE id = ?', [req.params.id]);
@@ -87,3 +87,4 @@ export const deleteArticulo = async (req, res, next) => {
         next(error);
     }
 };
+*/

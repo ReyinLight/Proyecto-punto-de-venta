@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-08-2024 a las 11:12:02
+-- Tiempo de generación: 06-08-2024 a las 12:57:08
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -109,7 +109,7 @@ CREATE TABLE `articulo` (
 INSERT INTO `articulo` (`id`, `nombre`, `descripcion`, `precio`, `existencias`) VALUES
 (1, 'Lámpara', 'Hermosa lámpara', 500, 8),
 (2, 'Reloj de pared', 'Reloj antiguo', 1000, 3),
-(3, 'Radio', 'Se escucha bien', 200, 3),
+(3, 'Radio', 'Se escucha bien', 200, 2),
 (4, 'Cuadro', 'Lindo para tu hogar', 500, 3),
 (5, 'Globo terráqueo', 'Globo terráqueo, ideal para decorar tu oficina', 800, 4),
 (6, 'Reloj dorado', 'Hermoso reloj dorado que da la hora', 900, 3),
@@ -119,6 +119,27 @@ INSERT INTO `articulo` (`id`, `nombre`, `descripcion`, `precio`, `existencias`) 
 (10, 'Perritos', 'Par de perritos cachorros', 300, 6),
 (11, 'Oso de peluche', 'Oso de regalo del amor y la amistad', 500, 4),
 (12, 'Figure anime kawai', 'Figura de anime traída desde china', 2500, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id` int(4) NOT NULL,
+  `idProducto` int(4) NOT NULL,
+  `comentario` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id`, `idProducto`, `comentario`) VALUES
+(1, 1, 'Es una lámpara preciosa, la puse en mi escritorio'),
+(2, 1, '¡Me encanta! compraré una para regalársela a mi mamá'),
+(3, 3, 'Acabo de comprar mi primer radio y me encanta');
 
 -- --------------------------------------------------------
 
@@ -139,7 +160,8 @@ CREATE TABLE `compra` (
 --
 
 INSERT INTO `compra` (`id`, `idUsuario`, `idProducto`, `fecha`, `subtotal`) VALUES
-(1, 1, 3, '2024-08-06', 200);
+(1, 1, 3, '2024-08-06', 200),
+(2, 2, 3, '2024-08-06', 200);
 
 -- --------------------------------------------------------
 
@@ -159,7 +181,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `email`, `phone`) VALUES
-(1, 'Dalila', 'Dalila@hot', '333');
+(1, 'Dalila', 'Dalila@hot', '333'),
+(2, 'Luis', 'Luis@hot', '19');
 
 -- --------------------------------------------------------
 
@@ -197,6 +220,12 @@ ALTER TABLE `articulo`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `compra`
 --
 ALTER TABLE `compra`
@@ -219,16 +248,22 @@ ALTER TABLE `articulo`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `compra`
 --
 ALTER TABLE `compra`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

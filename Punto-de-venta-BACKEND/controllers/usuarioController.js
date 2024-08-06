@@ -1,6 +1,5 @@
-import connection from '../config/db.js';
+/*import connection from '../config/db.js';
 
-// Obtener todos los usuarios
 export const getAllUsuarios = async (req, res, next) => {
     try {
         const [rows] = await connection.execute('SELECT * FROM usuario');
@@ -10,7 +9,6 @@ export const getAllUsuarios = async (req, res, next) => {
     }
 };
 
-// Obtener un usuario por ID
 export const getUsuarioById = async (req, res, next) => {
     try {
         const [rows] = await connection.execute('SELECT * FROM usuario WHERE id = ?', [req.params.id]);
@@ -25,7 +23,6 @@ export const getUsuarioById = async (req, res, next) => {
     }
 };
 
-// Obtener un usuario por email
 export const getUsuarioByEmail= async (req, res, next) => {
     try {
         
@@ -42,7 +39,6 @@ export const getUsuarioByEmail= async (req, res, next) => {
 };
 
 
-// Crear un nuevo usuario
 export const createUsuario = async (req, res, next) => {
     try {
         const { name, email, phone } = req.body;
@@ -51,7 +47,6 @@ export const createUsuario = async (req, res, next) => {
             return res.status(400).json({ error: 'Datos de entrada inválidos' });
         }
 
-        // Verificar si el email ya existe
         const [existingUsers] = await connection.execute(
             'SELECT * FROM usuario WHERE email = ?',
             [email]
@@ -72,7 +67,6 @@ export const createUsuario = async (req, res, next) => {
     }
 };
 
-// Actualizar un usuario
 export const updateUsuario = async (req, res, next) => {
     try {
         const { name, email, phone } = req.body;
@@ -82,7 +76,6 @@ export const updateUsuario = async (req, res, next) => {
             return res.status(400).json({ error: 'Datos de entrada inválidos' });
         }
 
-        // Verificar si el correo electrónico o teléfono ya existen
         const [existingUsers] = await connection.execute(
             'SELECT * FROM usuarios WHERE (email = ? OR phone = ?) AND id != ?',
             [email, phone, userId]
@@ -91,7 +84,6 @@ export const updateUsuario = async (req, res, next) => {
             return res.status(400).json({ error: 'Correo electrónico o teléfono ya existe' });
         }
 
-        // Solo actualiza los campos que se proporcionan
         const updateFields = [];
         const values = [];
 
@@ -108,7 +100,7 @@ export const updateUsuario = async (req, res, next) => {
             values.push(phone);
         }
 
-        values.push(userId); // Agrega el ID al final para la cláusula WHERE
+        values.push(userId); 
 
         const query = `UPDATE usuarios SET ${updateFields.join(', ')} WHERE id = ?`;
         const [result] = await connection.execute(query, values);
@@ -123,7 +115,6 @@ export const updateUsuario = async (req, res, next) => {
     }
 };
 
-// Eliminar un usuario
 export const deleteUsuario = async (req, res, next) => {
     try {
         const [result] = await connection.execute('DELETE FROM usuarios WHERE id = ?', [req.params.id]);
@@ -136,3 +127,4 @@ export const deleteUsuario = async (req, res, next) => {
         next(error);
     }
 };
+*/

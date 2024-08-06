@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Card, Button, Row, Col } from 'react-bootstrap';
-import './DetalleProducto.css'; // Asegúrate de agregar el archivo CSS si es necesario
+import CommentSection from '../SeccionComentarios/SeccionComentarios';
+import './DetalleProducto.css';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -20,7 +21,7 @@ const ProductDetail = () => {
         }
       } catch (error) {
         console.error('Error fetching product:', error);
-        navigate('/'); // Redirige al inicio si hay un error
+        navigate('/');
       }
     };
 
@@ -36,7 +37,7 @@ const ProductDetail = () => {
     );
   }
 
-  const imageURL = `/Imagenes/${product.id}.jpg`; // Ajusta la URL según sea necesario
+  const imageURL = `/Imagenes/${product.id}.jpg`;
 
   return (
     <Container className="mt-4">
@@ -77,6 +78,7 @@ const ProductDetail = () => {
           </Card>
         </Col>
       </Row>
+      <CommentSection productId={id} />
     </Container>
   );
 };

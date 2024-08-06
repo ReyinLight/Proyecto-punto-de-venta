@@ -1,15 +1,14 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './ProductCard.css'; // Asegúrate de que el CSS esté configurado correctamente
+import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
   if (!product) {
     return <div>Producto no disponible</div>;
   }
 
-  // Configura la URL de la imagen
-  const imageURL = `/Imagenes/${product.id}.jpg`; // Asegúrate de que el ID coincida con el nombre del archivo de la imagen
+  const imageURL = `/Imagenes/${product.id}.jpg`;
 
   return (
     <Card className="product-card">

@@ -1,4 +1,4 @@
-import express from 'express';
+/*import express from 'express';
 import { 
     getAllUsuarios, 
     getUsuarioById, 
@@ -18,3 +18,4 @@ router.put('/:id', updateUsuario);
 router.delete('/:id', deleteUsuario);
 
 export default router;
+*/

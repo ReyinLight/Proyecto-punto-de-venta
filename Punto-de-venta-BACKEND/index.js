@@ -6,7 +6,8 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import articuloRoutes from './routes/articuloRoutes.js';
 import compraRoutes from './routes/compraRoutes.js';
-import usuarioRoutes from './routes/usuarioRoutes.js';
+//import usuarioRoutes from './routes/usuarioRoutes.js';
+import comentariosRoutes from './routes/comentariosRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -19,9 +20,10 @@ app.use(bodyParser.json());
 
 app.use('/articulos', articuloRoutes);
 app.use('/compra', compraRoutes);
-app.use('/usuarios', usuarioRoutes);
+//app.use('/usuarios', usuarioRoutes);
+app.use('/comentarios', comentariosRoutes);
 
-// Middleware de manejo de errores
+
 const errorHandler = (err, req, res, next) => {
     console.error(err);
     res.status(500).json({ error: 'Se produjo un error en el servidor' });
