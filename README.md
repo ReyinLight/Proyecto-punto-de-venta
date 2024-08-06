@@ -10,7 +10,8 @@ Es necesario tener instalado [Node.js](https://nodejs.org/) y [MySQL](https://ww
 
 ### Paso 1 - Importar la Base de Datos
 
-1. Importa el archivo `.sql` en tu gestor de bases de datos MySQL.
+1. Abre tu gestor de bases de datos MySQL y crea una base de datos llamada `pruebadb`
+2. Importa el archivo `.sql`.
 
 ### Paso 2 - Descargar el Backend
 
